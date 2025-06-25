@@ -240,14 +240,14 @@ body {
     color: var(--color-primary-700);
 }
 
-.video-container {
+/* Menghapus gaya video-container jika tidak lagi digunakan untuk video */
+/* .video-container {
     position: relative;
     width: 100%;
-    /* 16:9 aspect ratio */
-    padding-bottom: 56.25%; /* (height/width) * 100% = (9/16) * 100% */
+    padding-bottom: 56.25%;
     height: 0;
     overflow: hidden;
-    background-color: #000; /* Latar belakang hitam untuk video */
+    background-color: #000;
     border-radius: 0.25rem;
 }
 
@@ -257,7 +257,7 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-}
+} */
 
 .music-control-button {
     display: flex;
