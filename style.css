@@ -1,0 +1,667 @@
+/* Custom color palette for a more traditional/earthy feel */
+:root {
+    --color-primary-50: #FDFCEE; /* Very light cream */
+    --color-primary-100: #FAEEDD; /* Light beige */
+    --color-primary-200: #F4E0C0; /* Muted yellow/tan */
+    --color-primary-300: #ECCBA5; /* Light brown/peach */
+    --color-primary-400: #D8A97E; /* Medium brown/terracotta */
+    --color-primary-500: #BF876B; /* Main brownish-pink/mauve (for flowers/accents) */
+    --color-primary-600: #A86F58; /* Darker brownish-pink (for buttons/icons) */
+    --color-primary-700: #8C5B42; /* Deep brown (for headings) */
+
+    --color-secondary-50: #F8F5EE; /* Slightly off-white for section backgrounds, complements cream */
+    --color-secondary-100: #F2ECDC; /* Lightest tint for countdown background */
+
+    --color-text-dark: #4F443A; /* Dark brown for main body text */
+    --color-text-light: #7A6F62; /* Muted brown for secondary text (e.g. nav links) */
+
+    --color-accent-pink: #D4A7A7; /* For subtle floral hints */
+    --color-accent-blue: #A7C2D4; /* For subtle blue accents (e.g. wayang elements) */
+}
+
+/* Tailwind custom colors for easy use in HTML classes */
+.bg-primary-600 { background-color: var(--color-primary-600); }
+.hover\:bg-primary-700:hover { background-color: var(--color-primary-700); }
+.text-primary-600 { color: var(--color-primary-600); }
+.text-primary-700 { color: var(--color-primary-700); }
+.text-primary-500 { color: var(--color-primary-500); }
+.hover\:text-primary-700:hover { color: var(--color-primary-700); }
+.bg-secondary-50 { background-color: var(--color-secondary-50); }
+.bg-secondary-100 { background-color: var(--color-secondary-100); }
+.border-primary-300 { border-color: var(--color-primary-300); }
+.hover\:border-primary-500:hover { border-color: var(--color-primary-500); }
+.text-primary-200 { color: var(--color-primary-200); }
+.bg-primary-500 { background-color: var(--color-primary-500); }
+.hover\:bg-primary-600:hover { background-color: var(--color-primary-600); }
+.text-accent-pink { color: var(--color-accent-pink); } /* For specific accents like heart icon */
+.text-text-dark { color: var(--color-text-dark); }
+.text-text-light { color: var(--color-text-light); }
+
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--color-secondary-50);
+    background-image: url('https://www.transparenttextures.com/patterns/cream-pixels.png'); /* Subtle background texture */
+    color: var(--color-text-dark);
+}
+
+/* New font for headings */
+.font-display-serif {
+    font-family: 'Playfair Display', serif;
+}
+
+/* New script font for names */
+.font-great-vibes {
+    font-family: 'Great Vibes', cursive;
+}
+
+/* Hero Section Styles - UPDATED FOR ANIMATED BACKGROUND */
+.hero-section {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+    padding: 2rem;
+    overflow: hidden; /* Penting untuk menyembunyikan bagian gambar yang bergeser */
+}
+
+/* Pseudo-element untuk menampung gambar latar belakang yang akan dianimasikan */
+.hero-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('bg-image.jpg'); /* GAMBAR LATAR BELAKANG ANDA */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    z-index: 0; /* Pastikan di paling belakang */
+    animation: kenBurns 45s infinite alternate ease-in-out; /* Durasi lebih panjang untuk lebih halus */
+}
+
+/* Hero Content - Tambahkan text-shadow emas */
+.hero-content {
+    position: relative;
+    z-index: 2; /* Pastikan teks di atas overlay */
+    animation: fadeIn 1.5s ease-out forwards;
+    text-shadow: 2px 2px 8px rgba(0,0,0,0.6), 0 0 10px rgba(255, 223, 0, 0.4); /* Efek kilau emas */
+}
+
+/* Animated Bird Element */
+.bird-element {
+    position: absolute;
+    top: 5%; /* Adjust position as needed */
+    left: 10%; /* Adjust position as needed */
+    z-index: 3; /* Pastikan burung di atas semua */
+}
+
+/* Particle Container for subtle floating ornaments */
+.particle-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none; /* Penting agar tidak mengganggu interaksi mouse */
+    overflow: hidden;
+    z-index: 0; /* Pastikan di belakang overlay jika perlu, atau di atas jika ingin terlihat lebih jelas */
+}
+
+.floating-ornament {
+    position: absolute;
+    animation: floatOrnament linear infinite; /* Hapus 'alternate' jika ingin selalu naik */
+    z-index: 0; /* Keep behind hero content */
+    filter: blur(0.5px);
+    opacity: 0; /* Mulai dari tidak terlihat */
+    animation-fill-mode: forwards; /* Mempertahankan state terakhir animasi */
+}
+
+/* NEW: Animasi untuk floating-ornament agar muncul dan hilang */
+@keyframes floatOrnament {
+    0% { transform: translateY(100vh) translateX(0); opacity: 0; } /* Mulai dari bawah layar */
+    20% { opacity: 1; } /* Muncul */
+    80% { opacity: 1; } /* Tetap terlihat */
+    100% { transform: translateY(-50px) translateX(var(--random-x)); opacity: 0; } /* Keluar dari atas, geser sedikit */
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.45); /* Sesuaikan opacity ini jika perlu kontras lebih/kurang */
+    z-index: 1; /* Pastikan overlay berada di atas gambar latar */
+}
+
+/* Styling for the side music toggle button */
+#musicToggleSide, #qrCodeToggleSide {
+    background-color: var(--color-primary-600);
+    color: white;
+    padding: 0.75rem 1rem; /* Padding lebih kecil untuk tombol samping */
+    border-top-left-radius: 0.5rem; /* rounded-l-lg */
+    border-bottom-left-radius: 0.5rem; /* rounded-l-lg */
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    box-shadow: -2px 2px 8px rgba(0, 0, 0, 0.3); /* Shadow ke samping */
+    transition: transform 0.3s ease-in-out, background-color 0.2s;
+    cursor: pointer;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem; /* Spasi antara ikon dan teks */
+    white-space: nowrap; /* Pastikan teks tidak patah */
+}
+
+#musicToggleSide:hover, #qrCodeToggleSide:hover {
+    transform: translateX(-5px); /* Geser ke kiri saat hover */
+    background-color: var(--color-primary-700);
+}
+
+
+/* Music Popup / Modal Styles */
+.music-popup-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6); /* Overlay gelap */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1001;
+    opacity: 0; /* Awalnya sembunyikan */
+    visibility: hidden; /* Sembunyikan dari screen readers */
+    transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
+}
+
+.music-popup-overlay.hidden {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none; /* Tambahkan ini agar tidak bisa diklik saat hidden */
+}
+
+/* Aturan untuk saat pop-up tidak hidden (dihapus atau ditambahkan secara eksplisit oleh JS) */
+.music-popup-overlay:not(.hidden) {
+    opacity: 1;
+    visibility: visible;
+}
+
+
+.music-popup-content {
+    background-color: #fff; /* Tambahkan atau pastikan ada warna latar belakang solid */
+    border-radius: 1.5rem;
+    max-width: 90%;
+    width: 400px; /* Lebar default pop-up */
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.35);
+    transition: all 0.5s ease-in-out; /* Transisi untuk semua perubahan ukuran dan posisi */
+    display: flex;
+    flex-direction: column;
+    background-image: url('bgpopup.jpg'); /* Menggunakan bgpopup.jpg sesuai informasi file Anda */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    padding: 1.5rem; /* Padding default */
+    box-sizing: border-box;
+    position: relative;
+    /* Ini adalah status default, opacity dan transform awal akan dikelola oleh .music-popup-overlay:hidden */
+}
+/* Animasi masuk untuk konten pop-up saat overlaynya tidak hidden */
+.music-popup-overlay:not(.hidden) .music-popup-content {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Animasi keluar untuk konten pop-up saat overlaynya hidden */
+.music-popup-overlay.hidden .music-popup-content {
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+/* BARU: Gaya saat lirik ditampilkan (pop-up melebar dan elemen berubah) */
+.music-popup-overlay.lyrics-active .music-popup-content {
+    width: 700px; /* Lebar lebih besar untuk lirik */
+    max-width: 95%; /* Batasi maksimal */
+    padding: 2.5rem 1.5rem; /* Padding lebih lapang */
+    height: auto;
+    max-height: 90vh; /* Batasi tinggi maksimum untuk layar kecil */
+
+    /* Tambahkan media query untuk responsivitas yang lebih baik di mobile */
+    @media (max-width: 640px) { /* Untuk layar sangat kecil, seperti ponsel */
+        width: 95%; /* Ambil hampir semua lebar layar */
+        max-width: 95%;
+        padding: 1.5rem 1rem; /* Kurangi padding di mobile */
+        max-height: 85vh; /* Sesuaikan tinggi maksimum di mobile */
+    }
+}
+
+.music-popup-content .popup-inner-bg {
+    background-color: rgba(255, 255, 255, 0.95);
+    border-radius: 1rem;
+    padding: 1.5rem; /* Padding default inner-bg */
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+/* BARU: Inner bg menyesuaikan padding saat lirik aktif */
+.music-popup-overlay.lyrics-active .music-popup-content .popup-inner-bg {
+    padding: 2rem; /* Padding lebih besar saat lirik aktif */
+}
+
+
+.close-popup {
+    background: none;
+    border: none;
+    cursor: pointer;
+    line-height: 1;
+    color: var(--color-text-light);
+}
+
+.close-popup:hover {
+    color: var(--color-primary-700);
+}
+
+/* Kontrol Pemutar Musik Baru */
+.music-player-controls {
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 1.5rem 1rem;
+    border-radius: 0.5rem;
+    box-shadow: inset 0 0 5px rgba(0,0,0,0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+    transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
+
+/* BARU: Sembunyikan/minimalkan kontrol pemutar (gambar, judul, progress bar) saat lirik aktif */
+.music-popup-overlay.lyrics-active .music-player-controls {
+    opacity: 0;
+    height: 0;
+    padding: 0;
+    margin-bottom: 0;
+    overflow: hidden;
+    pointer-events: none;
+    transform: translateY(-20px);
+}
+
+
+/* Tombol Lirik (ikon mikrofon) */
+.music-icon-label-button {
+    background: none;
+    border: none;
+    color: var(--color-text-light);
+    cursor: pointer;
+    font-size: 1rem;
+    padding: 0.5rem;
+    transition: color 0.2s ease-in-out;
+    display: flex;
+    flex-direction: column; /* Ikon dan teks vertikal */
+    align-items: center;
+    gap: 0.25rem;
+    font-weight: 500;
+    flex-shrink: 0;
+    /* margin-right untuk jarak dari tombol main */
+    margin-right: 1rem; /* DIUBAH: Jarak dari tombol Play/Pause utama */
+}
+.music-icon-label-button .fas {
+    font-size: 1.5rem;
+}
+.music-icon-label-button:hover {
+    color: var(--color-primary-600);
+}
+
+/* Tombol Play/Pause utama */
+.music-player-main-button {
+    width: 70px;
+    height: 70px;
+    display: flex;
+    flex-direction: column; /* Ikon dan teks bertumpuk */
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5rem;
+    background-color: var(--color-primary-500);
+    color: white;
+    border-radius: 50%;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    transition: background-color 0.3s ease-in-out, transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    margin: 0 1rem; /* Jarak dari tombol lain di sekitarnya */
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    flex-shrink: 0;
+}
+.music-player-main-button .button-label {
+    font-size: 0.75rem;
+    margin-top: 0.25rem;
+    line-height: 1;
+}
+.music-player-main-button:hover {
+    background-color: var(--color-primary-600);
+    transform: scale(1.05);
+    box-shadow: 0 6px 15px rgba(0,0,0,0.3);
+}
+
+
+/* Bilah Progres */
+.progress-container {
+    width: 90%;
+    margin: 0 auto;
+}
+
+#progressBar {
+    width: 100%;
+    -webkit-appearance: none;
+    appearance: none;
+    height: 8px;
+    background: var(--color-primary-200);
+    outline: none;
+    border-radius: 3px;
+    cursor: grab;
+}
+
+/* Style untuk "thumb" (handle) bilah progres */
+#progressBar::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: var(--color-primary-600);
+    cursor: grab;
+    box-shadow: 0 0 8px rgba(0,0,0,0.3);
+    border: 3px solid rgba(255,255,255,0.9);
+}
+
+#progressBar::-moz-range-thumb {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: var(--color-primary-600);
+    cursor: grab;
+    box-shadow: 0 0 8px rgba(0,0,0,0.3);
+    border: 3px solid rgba(255,255,255,0.9);
+}
+
+/* Gaya untuk info lagu dan artis */
+#songTitle {
+    font-size: 1.125rem;
+    font-weight: 600;
+    white-space: normal;
+    word-wrap: break-word;
+    line-height: 1.3;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    max-height: 2.6em;
+}
+
+#artistName {
+    font-size: 0.875rem;
+    color: #6B7280;
+    white-space: normal;
+    word-wrap: break-word;
+    line-height: 1.3;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    max-height: 1.3em;
+}
+
+/* Gaya untuk Foto Album agar lebih jelas dan tidak terpotong */
+#albumArt {
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    object-fit: contain;
+    width: 180px;
+    height: 180px;
+    margin-bottom: 1rem;
+    background-color: white;
+    border-radius: 0.5rem;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+#albumArt:hover {
+    transform: scale(1.03);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+}
+
+
+/* Gaya untuk Kontainer Lirik */
+.lyrics-container {
+    white-space: pre-wrap;
+    text-align: center;
+    font-family: 'Inter', sans-serif;
+    max-width: 90%;
+    margin: 1rem auto 0 auto;
+    padding: 1rem;
+    border: 1px solid var(--color-primary-100);
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 0.5rem;
+    box-shadow: inset 0 0 5px rgba(0,0,0,0.05);
+    flex-grow: 1; /* Biarkan mengisi ruang yang tersedia */
+    opacity: 1; /* Default saat tidak hidden */
+    transform: translateY(0); /* Default saat tidak hidden */
+    transition: all 0.5s ease-in-out; /* Transisi untuk muncul/hilang */
+}
+.lyrics-container.hidden {
+    display: none; /* Cara paling pasti untuk menyembunyikan kontainer lirik */
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+
+.section {
+    padding: 4rem 1.5rem;
+    max-width: 960px;
+    margin: 0 auto;
+}
+
+/* flower-divider UTAMA */
+.flower-divider {
+    width: 150px;
+    height: 3px;
+    background-color: var(--color-primary-500);
+    margin: 2.5rem auto;
+    border-radius: 2px;
+    animation: pulseDivider 2s infinite alternate;
+    box-shadow: 0 0 10px rgba(255, 223, 0, 0.3);
+}
+
+/* flower-divider-small */
+.flower-divider-small {
+    width: 80px;
+    height: 2px;
+    background-color: var(--color-primary-400);
+    margin: 1.5rem auto;
+    border-radius: 1px;
+    opacity: 0.7;
+}
+
+
+/* Style untuk kartu di 'Kisah Cinta Kami' */
+.story-card {
+    border-radius: 0.5rem;
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+    border: 1px solid var(--color-primary-100);
+    background-color: var(--color-secondary-50);
+    padding: 1rem;
+    flex-grow: 1;
+    min-width: 180px;
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+.story-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+
+/* Custom scroll behavior */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Styling for the RSVP message box */
+.message-box {
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #4CAF50;
+    color: white;
+    padding: 15px 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    text-align: center;
+    font-weight: 600;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
+}
+
+.message-box.error {
+    background-color: #f44336;
+}
+
+.message-box.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* --- Animations --- */
+
+/* Fade In */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.animate-fade-in {
+    animation: fadeIn 1s ease-out forwards;
+    opacity: 0;
+}
+
+/* Fade In Up */
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fade-in-up {
+    animation: fadeInUp 0.8s ease-out forwards;
+    opacity: 0;
+}
+
+/* Animate-fade-in-up delay classes are already defined via Tailwind (if you use them) */
+
+/* Scale In */
+@keyframes scaleIn {
+    from { opacity: 0; transform: scale(0.8); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+.animate-scale-in {
+    animation: scaleIn 1s cubic-bezier(0.68, -0.55, 0.27, 1.55) forwards;
+    opacity: 0;
+}
+
+/* Pop In (for button) */
+@keyframes popIn {
+    from { opacity: 0; transform: scale(0.5); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+.animate-pop-in {
+    animation: popIn 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+    opacity: 0;
+    animation-delay: 0.6s;
+}
+
+/* Bounce In (for countdown) */
+@keyframes bounceIn {
+    0% { transform: scale(0.1); opacity: 0; }
+    60% { transform: scale(1.2); opacity: 1; }
+    100% { transform: scale(1); }
+}
+
+.animate-bounce-in {
+    animation: bounceIn 0.8s ease-out forwards;
+    opacity: 0;
+}
+
+/* Floating Ornaments (formerly particles) */
+/* Animasi untuk floating-ornament agar muncul dan hilang, dengan random-x */
+@keyframes floatOrnament {
+    0% { transform: translateY(100vh) translateX(0); opacity: 0; } /* Mulai dari bawah layar */
+    20% { opacity: 1; } /* Muncul */
+    80% { opacity: 1; } /* Tetap terlihat */
+    100% { transform: translateY(-50px) translateX(var(--random-x)); opacity: 0; } /* Keluar dari atas, geser sedikit */
+}
+
+.floating-ornament {
+    position: absolute;
+    animation: floatOrnament linear infinite;
+    z-index: 0;
+    filter: blur(0.5px);
+    opacity: 0;
+    animation-fill-mode: forwards;
+}
+
+/* NEW ANIMATION: Ken Burns Effect for background image */
+@keyframes kenBurns {
+    0% {
+        transform: scale(1) translate(0%, 0%);
+        transform-origin: 50% 50%;
+    }
+    100% {
+        transform: scale(1.1) translate(5%, 5%);
+        transform-origin: 50% 50%;
+    }
+}
+
+/* Bird floating animation */
+@keyframes floatBird {
+    0% { transform: translate(0, 0); }
+    25% { transform: translate(15px, -8px); }
+    50% { transform: translate(0, -15px); }
+    75% { transform: translate(-15px, -8px); }
+    100% { transform: translate(0, 0); }
+}
+
+.animate-float {
+    animation: floatBird 10s ease-in-out infinite; /* Slower, smoother float */
+}
+
+/* NEW: Animasi pulse-slow untuk ikon hati di Our Story */
+@keyframes pulse-slow {
+    0% { transform: scale(1); opacity: 1; }
+    50% { transform: scale(1.05); opacity: 0.8; }
+    100% { transform: scale(1); opacity: 1; }
+}
+
+.animate-pulse-slow {
+    animation: pulse-slow 3s infinite ease-in-out;
+}
+
+
+/* Gallery Modal Styles */
+#galleryModal {
+    transition: opacity 0.3s ease-in-out;
+}
+
+#galleryModal.hidden {
+    opacity: 0;
+    pointer-events: none;
+}
+
+#galleryModal button {
+    cursor: pointer;
+    background: none;
+    border: none;
+}
