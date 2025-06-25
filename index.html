@@ -30,12 +30,13 @@
             <div class="popup-inner-bg relative p-6 md:p-8 rounded-lg shadow-xl overflow-hidden">
                 <h3 class="text-center text-2xl md:text-3xl font-display-serif text-text-dark mb-4">Music</h3>
                 <p class="text-sm text-center text-gray-500 mb-4">
-                    Beberapa browser tidak mendukung fitur autoplay. Gunakan browser seperti Chrome, Firefox, dll.
+                    Putar musik latar untuk undangan Anda.
                 </p>
 
-                <div class="video-container mb-4 mx-auto" style="max-width: 560px;">
-                    <div id="youtube-player"></div>
-                </div>
+                <audio id="background-music" loop>
+                    <source src="your_wedding_song.mp3" type="audio/mpeg">
+                    Browser Anda tidak mendukung elemen audio.
+                </audio>
 
                 <div class="flex justify-center items-center mt-6">
                     <button class="music-control-button p-3 rounded-full bg-primary-500 text-white shadow-md hover:bg-primary-600 transition-colors duration-200" id="playPauseButton">
@@ -43,9 +44,6 @@
                     </button>
                 </div>
                 <div class="text-center mt-6">
-                    <a href="https://www.youtube.com/channel/YOUR_CHANNEL_ID" target="_blank" class="bg-red-600 hover:bg-red-700 text-white font-bold py-2 px-4 rounded-full inline-flex items-center">
-                        <i class="fab fa-youtube mr-2"></i> Subscribe Channel
-                    </a>
                     <button class="close-popup ml-4 bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded-full">
                         Close
                     </button>
@@ -137,7 +135,7 @@
                     <i class="fas fa-map-marker-alt mr-2 text-primary-500"></i>Gereja Katedral Jakarta<br>
                     Jl. Katedral No.7, Ps. Baru, Sawah Besar, Kota Jakarta Pusat
                 </p>
-                <a href="https://maps.app.goo.gl/YOUR_Maps_LINK_KATEDRAL" target="_blank" class="text-primary-500 hover:text-primary-700 underline font-medium inline-flex items-center">Lihat di Google Maps <i class="fas fa-external-link-alt ml-2 text-sm"></i></a>
+                <a href="https://maps.app.goo.gl/YourKatedralMapsLink" target="_blank" class="text-primary-500 hover:text-primary-700 underline font-medium inline-flex items-center">Lihat di Google Maps <i class="fas fa-external-link-alt ml-2 text-sm"></i></a>
             </div>
 
             <div class="bg-white p-6 rounded-lg shadow-md animate-fade-in-up delay-200 border-b-4 border-primary-300 hover:border-primary-500 transition duration-300">
@@ -149,7 +147,7 @@
                     <i class="fas fa-map-marker-alt mr-2 text-primary-500"></i>Balai Kartini<br>
                     Jl. Gatot Subroto No.Kav. 37, Kuningan, Jakarta Selatan
                 </p>
-                <a href="https://maps.app.goo.gl/YOUR_Maps_LINK_BALAI_KARTINI" target="_blank" class="text-primary-500 hover:text-primary-700 underline font-medium inline-flex items-center">Lihat di Google Maps <i class="fas fa-external-link-alt ml-2 text-sm"></i></a>
+                <a href="https://maps.app.goo.gl/YourBalaiKartiniMapsLink" target="_blank" class="text-primary-500 hover:text-primary-700 underline font-medium inline-flex items-center">Lihat di Google Maps <i class="fas fa-external-link-alt ml-2 text-sm"></i></a>
             </div>
         </div>
 
