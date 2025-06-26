@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Design & Preset Wedding</title>
+    <link rel="icon" type="image/png" href="https://img.icons8.com/ios/50/ffffff/wedding-rings.png"/>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+</head>
+<body class="bg-black text-white font-montserrat">
+    <!-- Navigation -->
+    <nav class="fixed top-0 left-0 w-full z-50 bg-transparent">
+        <div class="container mx-auto px-6 py-6">
+            <div class="flex justify-between items-center">
+                <div class="text-2xl font-light tracking-widest hover:text-gray-300 transition-colors duration-300">D/P</div>
+                <div class="md:hidden">
+                    <button id="menu-toggle" class="text-white focus:outline-none">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                </div>
+                <div class="hidden md:flex space-x-12">
+                    <a href="#couple" class="hover:text-gray-300 tracking-wider text-sm transition-colors duration-300">COUPLE</a>
+                    <a href="#galleries" class="hover:text-gray-300 tracking-wider text-sm transition-colors duration-300">GALLERIES</a>
+                    <a href="#location" class="hover:text-gray-300 tracking-wider text-sm transition-colors duration-300">LOCATION</a>
+                    <a href="#wishes" class="hover:text-gray-300 tracking-wider text-sm transition-colors duration-300">WISHES</a>
+                </div>
+            </div>
+            <!-- Mobile Menu -->
+            <div id="mobile-menu" class="hidden md:hidden absolute top-full left-0 w-full bg-black/95 backdrop-blur-lg">
+                <div class="px-6 py-4 space-y-4">
+                    <a href="#couple" class="block hover:text-gray-300 tracking-wider text-sm transition-colors duration-300">COUPLE</a>
+                    <a href="#galleries" class="block hover:text-gray-300 tracking-wider text-sm transition-colors duration-300">GALLERIES</a>
+                    <a href="#location" class="block hover:text-gray-300 tracking-wider text-sm transition-colors duration-300">LOCATION</a>
+                    <a href="#wishes" class="block hover:text-gray-300 tracking-wider text-sm transition-colors duration-300">WISHES</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Cover Section -->
+    <section id="cover" class="h-screen flex items-center justify-center relative overflow-hidden" 
+             style="background-image: url('bg-image.jpg');">
+        <div class="absolute inset-0 bg-black/60 z-10"></div>
+        <div class="text-center z-20 space-y-8 animate-fadeIn">
+            <h1 class="text-4xl md:text-5xl font-light tracking-widest mb-4">The Wedding Of</h1>
+            <div class="text-5xl md:text-7xl font-bold mb-12 tracking-wider">
+                Izumi &<br>Shikimori
+            <div class="text-xl md:text-2xl tracking-[0.3em] mb-12">
+                06 . 11 . 2025
+            </div>
+            <!-- Countdown Timer -->
+            <div class="grid grid-cols-4 gap-4 md:gap-8 mb-12 max-w-xl mx-auto">
+                <div class="text-center">
+                    <div class="text-3xl md:text-4xl font-light mb-2" data-countdown="days">00</div>
+                    <div class="text-xs md:text-sm tracking-wider text-gray-300">days</div>
+                </div>
+                <div class="text-center">
+                    <div class="text-3xl md:text-4xl font-light mb-2" data-countdown="hours">00</div>
+                    <div class="text-xs md:text-sm tracking-wider text-gray-300">hours</div>
+                </div>
+                <div class="text-center">
+                    <div class="text-3xl md:text-4xl font-light mb-2" data-countdown="minutes">00</div>
+                    <div class="text-xs md:text-sm tracking-wider text-gray-300">minutes</div>
+                </div>
+                <div class="text-center">
+                    <div class="text-3xl md:text-4xl font-light mb-2" data-countdown="seconds">00</div>
+                    <div class="text-xs md:text-sm tracking-wider text-gray-300">seconds</div>
+                </div>
+            </div>
+            <button class="px-8 md:px-12 py-4 border border-white hover:bg-white hover:text-black transition-all duration-300 tracking-[0.2em] text-sm">
+                OPEN INVITATION
+            </button>
+        </div>
+    </section>
+
+    <!-- Couple Section -->
+    <section id="couple" class="py-24 md:py-32 px-4">
+        <div class="container mx-auto max-w-6xl">
+            <div class="grid md:grid-cols-2 gap-16 md:gap-24">
+                <div class="text-center animate-fadeIn">
+                    <h2 class="text-3xl mb-12 tracking-widest">THE BRIDE</h2>
+                    <div class="relative mb-12 aspect-[3/4] overflow-hidden group w-3/4 mx-auto mt-[-2rem]">
+    <img src="bridge.jpg" 
+         alt="Bride" 
+         class="w-full h-full object-cover transition duration-700 group-hover:scale-110"
+         onerror="this.src='https://via.placeholder.com/400x600/1a1a1a/ffffff?text=Adinda+Mawaria'">
+    <div class="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition duration-300"></div>
+</div>
+                    <h3 class="text-2xl mb-6 tracking-wide">Miyako Shikimori</h3>
+                    </a>
+                </div>
+                <div class="text-center animate-fadeIn">
+                    <h2 class="text-3xl mb-12 tracking-widest">THE GROOM</h2>
+                    <div class="relative mb-12 aspect-[3/4] overflow-hidden group w-3/4 mx-auto mt-[-2rem]">
+    <img src="groom.jpg" 
+         alt="Groom" 
+         class="w-full h-full object-cover transition duration-700 group-hover:scale-110"
+         onerror="this.src='https://via.placeholder.com/400x600/1a1a1a/ffffff?text=John+Doe'">
+    <div class="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition duration-300"></div>
+</div>
+                    <h3 class="text-2xl mb-6 tracking-wide">Yuu Izumi</h3>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section id="galleries" class="py-24 md:py-32 px-4 bg-gray-900">
+    <div class="container mx-auto max-w-6xl">
+        <h2 class="text-4xl text-center mb-8 tracking-widest animate-fadeIn">Precious moment</h2>
+        <p class="text-center mb-16 max-w-2xl mx-auto text-gray-400 italic animate-fadeIn">
+            "Creating memories is a priceless gift. Memories last a lifetime; objects last only a short time."
+        </p>
+
+        <div class="swiper gallerySwiper">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                    <div class="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
+                        <div class="aspect-square overflow-hidden group cursor-pointer animate-fadeIn">
+                            <img src="couple1.jpg" alt="Gallery 1" class="w-full h-full object-cover transition duration-700 group-hover:scale-110">
+                            <div class="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition duration-300"></div>
+                        </div>
+                        <div class="aspect-square overflow-hidden group cursor-pointer animate-fadeIn">
+                            <img src="couple2.jpg" alt="Gallery 2" class="w-full h-full object-cover transition duration-700 group-hover:scale-110">
+                            <div class="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition duration-300"></div>
+                        </div>
+                        <div class="aspect-square overflow-hidden group cursor-pointer animate-fadeIn">
+                            <img src="couple3.jpg" alt="Gallery 3" class="w-full h-full object-cover transition duration-700 group-hover:scale-110">
+                            <div class="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition duration-300"></div>
+                        </div>
+                        <div class="aspect-square overflow-hidden group cursor-pointer animate-fadeIn">
+                            <img src="couple4.jpg" alt="Gallery 4" class="w-full h-full object-cover transition duration-700 group-hover:scale-110">
+                            <div class="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition duration-300"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="swiper-slide">
+                    <div class="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
+                        <div class="aspect-square overflow-hidden group cursor-pointer animate-fadeIn">
+                            <img src="couple5.jpg" alt="Gallery 5" class="w-full h-full object-cover transition duration-700 group-hover:scale-110">
+                            <div class="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition duration-300"></div>
+                        </div>
+                        <div class="aspect-square overflow-hidden group cursor-pointer animate-fadeIn">
+                            <img src="couple6.jpg" alt="Gallery 6" class="w-full h-full object-cover transition duration-700 group-hover:scale-110">
+                            <div class="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition duration-300"></div>
+                        </div>
+                        <div class="aspect-square overflow-hidden group cursor-pointer animate-fadeIn">
+                            <img src="couple7.jpg" alt="Gallery 7" class="w-full h-full object-cover transition duration-700 group-hover:scale-110">
+                            <div class="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition duration-300"></div>
+                        </div>
+                        <div class="aspect-square overflow-hidden group cursor-pointer animate-fadeIn">
+                            <img src="couple8.jpg" alt="Gallery 8" class="w-full h-full object-cover transition duration-700 group-hover:scale-110">
+                            <div class="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition duration-300"></div>
+                        </div>
+                    </div>
+                </div>
+
+                </div>
+            <div class="swiper-pagination"></div>
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+        </div>
+        </div>
+</section>
+
+    <!-- Location Section -->
+    <section id="location" class="py-24 md:py-32 px-4">
+        <div class="container mx-auto max-w-5xl">
+            <div class="grid md:grid-cols-2 gap-16 md:gap-24">
+                <div class="text-center animate-fadeIn">
+                    <h3 class="text-2xl mb-8 tracking-widest font-light">MARRIAGE CONTRACT</h3>
+                    <p class="mb-4 text-xl">Friday, April 28th, 2023</p>
+                    <p class="mb-12 text-gray-400">at 09:00 WIB - finish</p>
+                    <a href="https://maps.google.com/?cid=685464459623750616" 
+                       class="text-gray-400 hover:text-white leading-relaxed inline-block transition duration-300">
+                        Masjid Al - Barkah, Jl. Veteran No.46,<br>RT.003/RW.004, Marga Jaya,<br>Kec. Bekasi Sel., Kota Bks,<br>Jawa Barat 17141
+                    </a>
+                </div>
+                <div class="text-center animate-fadeIn">
+                    <h3 class="text-2xl mb-8 tracking-widest font-light">RECEPTION</h3>
+                    <p class="mb-4 text-xl">Friday, March 15th, 2024</p>
+                    <p class="mb-12 text-gray-400">at 15:00 WIB - finish</p>
+                    <a href="https://www.google.com/maps/place/Plataran+Menteng/" 
+                       class="text-gray-400 hover:text-white leading-relaxed inline-block transition duration-300">
+                        DoubleTree by Hilton Jakarta<br>Diponegoro Jakarta Pusat
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- RSVP Section -->
+    <section id="rsvp" class="py-24 md:py-32 px-4 bg-gray-900">
+        <div class="container mx-auto max-w-xl">
+            <h2 class="text-3xl text-center mb-16 tracking-widest animate-fadeIn">Reservation (RSVP)</h2>
+            <form class="space-y-8">
+                <div class="flex items-center space-x-4 p-4 border border-gray-700 rounded hover:border-white transition duration-300 cursor-pointer group">
+                    <input type="radio" id="attend-yes" name="attendance" class="w-5 h-5">
+                    <label for="attend-yes" class="flex-grow cursor-pointer group-hover:text-white transition duration-300">
+                        Yes, I would like to come
+                    </label>
+                </div>
+                <div class="flex items-center space-x-4 p-4 border border-gray-700 rounded hover:border-white transition duration-300 cursor-pointer group">
+                    <input type="radio" id="attend-no" name="attendance" class="w-5 h-5">
+                    <label for="attend-no" class="flex-grow cursor-pointer group-hover:text-white transition duration-300">
+                        Sorry, I can't
+                    </label>
+                </div>
+                <button type="submit" class="w-full py-4 bg-white text-black hover:bg-gray-200 transition duration-300 tracking-widest text-sm">
+                    SEND YOUR RESPONSE
+                </button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Wishes Section -->
+    <section id="wishes" class="py-24 md:py-32 px-4">
+        <div class="container mx-auto max-w-4xl">
+            <h2 class="text-4xl text-center mb-16 tracking-widest animate-fadeIn">Wishes</h2>
+            <div class="grid gap-8">
+                <div class="bg-gray-900/50 p-8 backdrop-blur rounded-lg animate-fadeIn hover:transform hover:scale-105 transition-all duration-300">
+                    <div class="mb-2 text-lg">Dee</div>
+                    <div class="text-sm text-gray-400 mb-4">at Bogor</div>
+                    <p class="italic text-gray-300">"Beautiful 💞"</p>
+                </div>
+                <div class="bg-gray-900/50 p-8 backdrop-blur rounded-lg animate-fadeIn hover:transform hover:scale-105 transition-all duration-300">
+                    <div class="mb-2 text-lg">Our Wedding Link</div>
+                    <div class="text-sm text-gray-400 mb-4">at Bekasi</div>
+                    <p class="italic text-gray-300">"Beautiful design matters. happy for all of you that want going to married"</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-12 px-4 bg-gray-900">
+        <div class="container mx-auto max-w-4xl text-center">
+            <p class="text-gray-400 mb-6">Thank you for being part of our special day</p>
+            <div class="text-2xl font-light tracking-widest mb-8">Design & Preset</div>
+            <p class="text-sm text-gray-500">© 2025 All rights reserved</p>
+        </div>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
